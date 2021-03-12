@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const BookSchema = mongoose.Schema({
-    Name :{
+    Title :{
         type :String ,
         required :true ,
         trim : true
@@ -11,8 +11,13 @@ const BookSchema = mongoose.Schema({
         required : true ,
         trim : true
     },
-    Author :{
+    Language:{
         type : String ,
+        required:true ,
+        trim : true
+    },
+    yearOfEdition :{
+        type : Number ,
         required : true ,
         trim : true
     },
@@ -20,7 +25,16 @@ const BookSchema = mongoose.Schema({
         type : mongoose.Schema.Types.ObjectId,
         required:true,
         ref : 'Publisher'
+    },
+    owner:{
+        type : mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref : 'Author'
     }
 })
 
 module.exports = mongoose.model('Book' , BookSchema)
+
+//branch locally
+//changes/commit 
+//pr
